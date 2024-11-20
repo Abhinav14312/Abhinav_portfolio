@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhinav's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <h1>Welcome to My Portfolio</h1>
+        <p>I'm Abhinav, a passionate web developer</p>
+        <img src="Whatsapp Image 2024-11-20 at 13.19.38.jpg" alt="Profile Picture">
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hello! I'm Abhinav, a passionate and imaginative computer science student with a love for blending technology and creativity. Whether it's crafting intuitive user interfaces, designing engaging games, or exploring the limitless potential of AI, I thrive at the intersection of logic and artistry.</p>
+        <p>When I’m not immersed in code, you’ll find me sketching ideas for my next project, diving into gaming worlds, or exploring new avenues in tech. If you're looking for someone who loves challenges and is always ready to turn ideas into reality, let's connect!</p>
+        <a class="resume-btn" href="assests/Document 4.pdf" download="Document 4.pdf">Download Résumé</a>
+    </section>
+
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div id="project-filters">
+            <button onclick="filterProjects('all')">All</button>
+            <button onclick="filterProjects('web')">Web Development</button>
+            <button onclick="filterProjects('python')">Python</button>
+        </div>
+        <div class="project-card" data-type="python">
+            <h3>Project 1: Tetris Game</h3>
+            <p>A simple Tetris game made using Python and Pygame</p>
+            <a href="tetris-game.zip.zip">View Project</a>
+        </div>
+        <div class="project-card" data-type="web">
+            <h3>Project 2: Movie Recommendation System</h3>
+            <p>A Movie recommendation system built using TMDb and MovieLens datasets</p>
+            <a href="https://github.com/Abhinav14312/movie-recommendation-system-project">View Project</a>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Feel free to reach out to me via email, Instagram, or through the contact form below!</p>
+        <div id="social-links">
+            <a href="mailto:abhinav@gmail.com" class="email">📧 abhinav@gmail.com</a>
+            <a href="https://www.instagram.com/ab.hinav3716" target="_blank" class="instagram">📷 Instagram</a>
+        </div>
+        <form>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2024 Abhinav. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Filter projects by type
+        function filterProjects(type) {
+            const cards = document.querySelectorAll(".project-card");
+            cards.forEach(card => {
+                if (type === 'all' || card.dataset.type === type) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+
+        // Form validation
+        document.querySelector("form").addEventListener("submit", function(e) {
+            const email = document.querySelector("#email").value;
+            if (!email.includes("@")) {
+                alert("Please enter a valid email address.");
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
+
+
